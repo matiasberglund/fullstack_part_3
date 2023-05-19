@@ -6,6 +6,7 @@ const app = express()
 morgan.token('resbody', function (req) { if (req.method === "POST") return JSON.stringify(req.body) })
 
 app.use(express.json())
+app.use(express.static('build'))
 app.use(morgan(function (tokens, req, res) {
     return [
         tokens.method(req, res),
